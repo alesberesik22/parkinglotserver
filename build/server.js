@@ -52,5 +52,5 @@ const startServer = () => {
     });
     http_1.default
         .createServer(router)
-        .listen(config_1.config.server.port, () => Logging_1.default.info("Server is running"));
+        .listen(config_1.config.server.port || 8000, () => Logging_1.default.info("Server is running"));
 };
