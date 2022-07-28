@@ -17,7 +17,7 @@ const createParkingLot = (req: Request, res: Response, next: NextFunction) => {
 const readParkingLot = (req: Request, res: Response, next: NextFunction) => {
   const parkingLotID = req.params.ParkingID;
 
-  return Parkinglot.findById(parkingLotID)
+  return Parkinglot.findOne({ ParkingID: parkingLotID })
     .then((parkingLot) =>
       parkingLot
         ? res.status(200).json({ parkingLot })
@@ -33,7 +33,7 @@ const readAllParkingLot = (req: Request, res: Response, next: NextFunction) => {
 const updateParkingLot = (req: Request, res: Response, next: NextFunction) => {
   const parkingLotID = req.params.ParkingID;
 
-  return Parkinglot.findById(parkingLotID)
+  return Parkinglot.findOne({ ParkingID: parkingLotID })
     .then((parkingLot) => {
       if (parkingLot) {
         parkingLot.set(req.body);
@@ -52,7 +52,7 @@ const deleteParkingLot = (req: Request, res: Response, next: NextFunction) => {
   const parkingLotID = req.params.ParkingID;
   console.log(parkingLotID);
 
-  return Parkinglot.findByIdAndDelete(parkingLotID)
+  return Parkinglot.findOneAndDelete({ ParkingID: parkingLotID })
     .then((parkingLot) =>
       parkingLot
         ? res.status(200).json({ message: "Deleted" })
