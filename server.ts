@@ -73,7 +73,7 @@ const startServer = () => {
 
   http
     .createServer(router)
-    .listen(config.server.port || 5000, () =>
+    .listen(config.server.port || 8000, () =>
       Logging.info("Server is running")
     );
 };
